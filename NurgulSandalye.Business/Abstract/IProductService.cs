@@ -1,4 +1,5 @@
-﻿using NurgulSandalye.DataAccess.Abstract;
+﻿using Ardalis.Specification;
+using NurgulSandalye.DataAccess.Abstract;
 using NurgulSandalye.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace NurgulSandalye.Business.Abstract
     {
         Task<List<Product>> ListPopularProductAsync();
         Task<List<Product>> ListAllProductAsync();
+
+        Task<List<Product>> ListProductsAsync(ISpecification<Product> spec);
 
     }
 }

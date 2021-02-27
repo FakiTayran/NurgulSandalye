@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using NurgulSandalye.Business.Abstract;
+using NurgulSandalye.Business.Concrete.Spesifications;
+using NurgulSandalye.Entities;
 using NurgulSandalye.WebUI.Interfaces;
 using NurgulSandalye.WebUI.ViewModels;
 using System;
@@ -23,9 +25,10 @@ namespace NurgulSandalye.WebUI.Services
             _subCategoryService = subCategoryService;
             _materialService = materialService;
         }
-        public async Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId)
+        public async Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId,bool? discount, StockStatus? status)
         {
-            var products = await _productService.ListAllProductAsync();
+            var spec = new ProductFilterSpesification(categoryId, subCategoryId, materialId, discount, status);
+            var products = await _productService.ListProductsAsync(spec);
 
             return new ShopIndexViewModel()
             {

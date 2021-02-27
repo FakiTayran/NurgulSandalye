@@ -84,16 +84,16 @@ namespace NurgulSandalye.DataAccess.Concrete.EfCore.Seed
 
             if (!context.Products.Any())
             {
-                context.Products.Add(new Product() {Name = "Lotus Sandalye",SubCategoryId = 2,Price=480m,MaterialId=2, });
-                context.Products.Add(new Product() {Name = "Lhastic Sandalye",SubCategoryId = 1,Price=200m,MaterialId=1});
-                context.Products.Add(new Product() {Name = "Venüs Sandalye",SubCategoryId = 3,Price = 580m, MaterialId=2});
-                context.Products.Add(new Product() {Name = "Ehamanza Sandalye",SubCategoryId = 4,Price = 680m,Discount=true,DiscountedPrice=500m, MaterialId = 3});
-                context.Products.Add(new Product() {Name = "Kuki Sandalye",SubCategoryId = 5,Price = 450m, MaterialId = 4});
-                context.Products.Add(new Product() {Name = "Basel Sandalye",SubCategoryId = 6,Price = 350m, Discount = true, DiscountedPrice = 250m, MaterialId = 5});
-                context.Products.Add(new Product() {Name = "Auro Masa",SubCategoryId = 6,Price = 290m, MaterialId = 6});
-                context.Products.Add(new Product() {Name = "Marble Masa", SubCategoryId = 8,Price = 900m, Discount = true, DiscountedPrice = 700m, MaterialId = 3});
-                context.Products.Add(new Product() {Name = "Mecen Masa", SubCategoryId = 9,Price = 1200m,  MaterialId = 2});
-                context.Products.Add(new Product() {Name = "Burgu Masa", SubCategoryId = 10,Price = 1500m,  MaterialId = 3});
+                context.Products.Add(new Product() {Name = "Lotus Sandalye",SubCategoryId = 2,Price=480m,MaterialId=2,CategoryId=1,StockStatus = StockStatus.InStock});
+                context.Products.Add(new Product() {Name = "Lhastic Sandalye",SubCategoryId = 1,Price=200m,MaterialId=1, CategoryId = 1, StockStatus = StockStatus.InStock });
+                context.Products.Add(new Product() {Name = "Venüs Sandalye",SubCategoryId = 3,Price = 580m, MaterialId=2, CategoryId = 1, StockStatus = StockStatus.InStock });
+                context.Products.Add(new Product() {Name = "Ehamanza Sandalye",SubCategoryId = 4,Price = 680m,Discount=true,DiscountedPrice=500m, MaterialId = 3, CategoryId = 1, StockStatus = StockStatus.InStock });
+                context.Products.Add(new Product() {Name = "Kuki Sandalye",SubCategoryId = 5,Price = 450m, MaterialId = 4,CategoryId=2, StockStatus = StockStatus.InStock });
+                context.Products.Add(new Product() {Name = "Basel Sandalye",SubCategoryId = 6,Price = 350m, Discount = true, DiscountedPrice = 250m, MaterialId = 5, CategoryId = 2, StockStatus = StockStatus.InStock });
+                context.Products.Add(new Product() {Name = "Auro Masa",SubCategoryId = 6,Price = 290m, MaterialId = 6, CategoryId = 3, StockStatus = StockStatus.InStock });
+                context.Products.Add(new Product() {Name = "Marble Masa", SubCategoryId = 8,Price = 900m, Discount = true, DiscountedPrice = 700m, MaterialId = 3,CategoryId=3, StockStatus = StockStatus.InStock });
+                context.Products.Add(new Product() {Name = "Mecen Masa", SubCategoryId = 11,Price = 1200m,  MaterialId = 2,CategoryId=4, StockStatus = StockStatus.OneWeek });
+                context.Products.Add(new Product() {Name = "Burgu Masa", SubCategoryId = 12,Price = 1500m,  MaterialId = 3,CategoryId=4, StockStatus = StockStatus.TwoWeek });
                 context.SaveChanges();
             }
             

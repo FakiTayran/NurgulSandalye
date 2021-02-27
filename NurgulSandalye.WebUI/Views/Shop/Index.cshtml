@@ -92,18 +92,8 @@
             <div class="row">
 
                 <!-- === product-filters === -->
-
-                <div class="col-md-3 col-xs-12">
+                <form class="col-md-3 col-xs-12">
                     <div class="filters">
-                        <!--Price-->
-                        <div class="filter-box active">
-                            <div class="title">Fiyat Aralığı</div>
-                            <div class="filter-content">
-                                <div class="price-filter">
-                                    <input type="text" id="range-price-slider" value="" name="range" />
-                                </div>
-                            </div>
-                        </div>
                         <!--Availability-->
                         <div class="filter-box active">
                             <div class="title">
@@ -160,7 +150,7 @@
 
                             </div>
                         </div> <!--/filter-box-->
-                         @*************todo:ViewComponentle yap seçilen categoryId ye göre subcategoryleri bastır**********************@
+                        @*************todo:ViewComponentle yap seçilen categoryId ye göre subcategoryleri bastır**********************@
                         <div class="filter-box active">
                             <div class="title">
                                 Alt Kategori
@@ -199,12 +189,13 @@
                             </div>
                         </div> <!--/filter-box-->
                         <!--close filters on mobile / update filters-->
-                        <div class="toggle-filters-close btn btn-main">
+
+                        <button type="submit" class="toggle-filters-close btn btn-main">
                             Ürünleri Filtrele
-                        </div>
+                        </button>
 
                     </div> <!--/filters-->
-                </div>
+                </form>
 
                 <!--product items-->
 
@@ -302,7 +293,6 @@
 
                     <div class="product">
                         <!-- === product gallery === -->
-
                         <!-- === popup-title === -->
 
                         <div class="popup-title">

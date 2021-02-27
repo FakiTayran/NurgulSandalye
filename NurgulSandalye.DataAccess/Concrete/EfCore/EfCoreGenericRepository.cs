@@ -26,8 +26,11 @@ namespace NurgulSandalye.DataAccess.Concrete.EfCore
         }
         public async Task<int> CountAsync(ISpecification<TEntity> spec)
         {
-            var specificationResult = ApplySpecification(spec);
-            return await specificationResult.CountAsync();
+            using (var context = new TContext())
+            {
+                var evaluator = new SpecificationEvaluator<TEntity>();
+                return await evaluator.GetQuery(context.Set<TEntity>().AsQueryable(), spec).CountAsync();
+            }
         }
 
         public async Task DeleteAsync(TEntity entity)
@@ -41,14 +44,20 @@ namespace NurgulSandalye.DataAccess.Concrete.EfCore
 
         public async Task<TEntity> FirstAsync(ISpecification<TEntity> spec)
         {
-            var specificationResult = ApplySpecification(spec);
-            return await specificationResult.FirstAsync();
+            using (var context = new TContext())
+            {
+                var evaluator = new SpecificationEvaluator<TEntity>();
+                return await evaluator.GetQuery(context.Set<TEntity>().AsQueryable(), spec).FirstAsync();
+            }
         }
 
         public async Task<TEntity> FirstOrDefaultAsync(ISpecification<TEntity> spec)
         {
-            var specificationResult = ApplySpecification(spec);
-            return await specificationResult.FirstOrDefaultAsync();
+            using (var context = new TContext())
+            {
+                var evaluator = new SpecificationEvaluator<TEntity>();
+                return await evaluator.GetQuery(context.Set<TEntity>().AsQueryable(), spec).FirstOrDefaultAsync();
+            };
         }
 
         public TEntity GetById(int id)
@@ -77,8 +86,11 @@ namespace NurgulSandalye.DataAccess.Concrete.EfCore
 
         public async Task<List<TEntity>> ListAsync(ISpecification<TEntity> spec)
         {
-            var spesificationResult = ApplySpecification(spec);
-            return await spesificationResult.ToListAsync();
+            using (var context = new TContext())
+            {
+                var evaluator = new SpecificationEvaluator<TEntity>();
+                return await evaluator.GetQuery(context.Set<TEntity>().AsQueryable(), spec).ToListAsync();
+            }
         }
 
         public async Task UpdateAsync(TEntity entity)
@@ -90,13 +102,13 @@ namespace NurgulSandalye.DataAccess.Concrete.EfCore
             }
         }
 
-        private IQueryable<TEntity> ApplySpecification(ISpecification<TEntity> spec)
-        {
-            using (var context = new TContext())
-            {
-                var evaluator = new SpecificationEvaluator<TEntity>();
-                return evaluator.GetQuery(context.Set<TEntity>().AsQueryable(), spec);
-            }
-        }
+        //private IQueryable<TEntity> ApplySpecification(ISpecification<TEntity> spec)
+        //{
+        //    using (var context = new TContext())
+        //    {
+        //        var evaluator = new SpecificationEvaluator<TEntity>();
+        //        return evaluator.GetQuery(context.Set<TEntity>().AsQueryable(), spec).ToListAsync();
+        //    }
+        //}
     }
 }
