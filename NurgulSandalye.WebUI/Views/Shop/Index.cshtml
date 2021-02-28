@@ -124,7 +124,7 @@
                                 @foreach (var category in Model.Categories)
                                 {
                                     <span class="checkbox">
-                                        <input type="radio" name="CategoryId" id="typeId+@category.Value" value="@category.Value"  checked=@(ViewBag.SelectedCategory == category.Value.ToString() ? "checked" : "") >
+                                        <input type="radio" name="CategoryId" id="typeId+@category.Value" value="@category.Value" >
                                         <label for="typeId+@category.Value">@category.Text</label>
                                     </span>
                                 }
@@ -346,6 +346,8 @@
         $("body").on("change", "input", function () {
             $(this).closest("form").submit();
         });
+        //var catId="@ViewBag.SelectedCategory";
+        $("[name=CategoryId][value=@ViewBag.SelectedCategory]").attr("checked", "checked")
     </script>
 
 }
