@@ -92,28 +92,9 @@
             <div class="row">
 
                 <!-- === product-filters === -->
-                <form class="col-md-3 col-xs-12">
+                <form class="col-md-3 col-xs-12" method="post">
                     <div class="filters">
-                        <!--Availability-->
-                        <div class="filter-box active">
-                            <div class="title">
-                                STOK
-                            </div>
-                            <div class="filter-content">
-                                <span class="checkbox">
-                                    <input type="radio" name="radiogroup-stock" id="availableId1" checked="checked">
-                                    <label for="availableId1">Stokta mevcut </label>
-                                </span>
-                                <span class="checkbox">
-                                    <input type="radio" name="radiogroup-stock" id="availableId2">
-                                    <label for="availableId2">1 hafta </label>
-                                </span>
-                                <span class="checkbox">
-                                    <input type="radio" name="radiogroup-stock" id="availableId3">
-                                    <label for="availableId3">2 hafta </label>
-                                </span>
-                            </div>
-                        </div> <!--/filter-box-->
+                       
                         <!--Discount-->
                         <div class="filter-box active">
                             <div class="title">
@@ -121,11 +102,11 @@
                             </div>
                             <div class="filter-content">
                                 <span class="checkbox">
-                                    <input type="radio" id="discountId1" name="discountPrice" checked="checked">
+                                    <input type="radio" id="discountId1" name="Discount" checked="checked">
                                     <label for="discountId1">Hepsi</label>
                                 </span>
                                 <span class="checkbox">
-                                    <input type="radio" id="discountId2" name="discountPrice">
+                                    <input type="radio" id="discountId2" name="Discount" value="true">
                                     <label for="discountId2">İndirimli Ürünler</label>
                                 </span>
                             </div>
@@ -137,33 +118,32 @@
                             </div>
                             <div class="filter-content">
                                 <span class="checkbox">
-                                    <input type="radio" name="radiogroup-type" id="typeIdAll" checked="checked">
+                                    <input type="radio" name="CategoryId" id="typeIdAll" checked="checked">
                                     <label for="typeIdAll">Hepsi </label>
                                 </span>
                                 @foreach (var category in Model.Categories)
                                 {
                                     <span class="checkbox">
-                                        <input type="radio" name="radiogroup-type" id="typeId+@category.Value" checked="checked">
+                                        <input type="radio" name="CategoryId" id="typeId+@category.Value" value="@category.Value"  checked=@(ViewBag.SelectedCategory == category.Value.ToString() ? "checked" : "") >
                                         <label for="typeId+@category.Value">@category.Text</label>
                                     </span>
                                 }
 
                             </div>
                         </div> <!--/filter-box-->
-                        @*************todo:ViewComponentle yap seçilen categoryId ye göre subcategoryleri bastır**********************@
                         <div class="filter-box active">
                             <div class="title">
                                 Alt Kategori
                             </div>
                             <div class="filter-content">
                                 <span class="checkbox">
-                                    <input type="radio" name="radiogroup-type" id="subtypeIdAll" checked="checked">
+                                    <input type="radio" name="SubCategoryId" id="subtypeIdAll" checked="checked">
                                     <label for="subtypeIdAll">Hepsi </label>
                                 </span>
                                 @foreach (var subCategory in Model.SubCategories)
                                 {
                                     <span class="checkbox">
-                                        <input type="radio" name="radiogroup-type" id="subtypeId+@subCategory.Value">
+                                        <input type="radio" name="SubCategoryId" id="subtypeId+@subCategory.Value" value="@subCategory.Value">
                                         <label for="subtypeId+@subCategory.Value">@subCategory.Text</label>
                                     </span>
                                 }
@@ -176,24 +156,19 @@
                             </div>
                             <div class="filter-content">
                                 <span class="checkbox">
-                                    <input type="radio" name="radiogroup-material" id="matIdAll">
+                                    <input type="radio" name="MaterialId" id="matIdAll" checked="checked">
                                     <label for="matIdAll">All </label>
                                 </span>
                                 @foreach (var material in Model.Materials)
                                 {
                                     <span class="checkbox">
-                                        <input type="radio" name="radiogroup-material" id="matId+@material.Value">
+                                        <input type="radio" name="MaterialId" id="matId+@material.Value" value="@material.Value" >
                                         <label for="matId+@material.Value">@material.Text</label>
                                     </span>
                                 }
                             </div>
                         </div> <!--/filter-box-->
                         <!--close filters on mobile / update filters-->
-
-                        <button type="submit" class="toggle-filters-close btn btn-main">
-                            Ürünleri Filtrele
-                        </button>
-
                     </div> <!--/filters-->
                 </form>
 
@@ -365,3 +340,12 @@
     <div class="inc:_footer.html"></div>
 
 </div> <!--/wrapper-->
+
+@section scripts{ 
+    <script>
+        $("body").on("change", "input", function () {
+            $(this).closest("form").submit();
+        });
+    </script>
+
+}

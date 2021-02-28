@@ -20,5 +20,7 @@ namespace NurgulSandalye.WebUI.ViewModels
         public int? SubCategoryId { get; set; }
         public int? MaterialId { get; set; }
 
+        public bool? Discount { get; set; }
+
     }
 }

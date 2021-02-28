@@ -1,4 +1,5 @@
-﻿using NurgulSandalye.Business.Abstract;
+﻿using Ardalis.Specification;
+using NurgulSandalye.Business.Abstract;
 using NurgulSandalye.DataAccess.Abstract;
 using NurgulSandalye.Entities;
 using System;
@@ -20,6 +21,11 @@ namespace NurgulSandalye.Business.Concrete
         public Task<List<SubCategory>> ListAllSubCategoryAsync()
         {
             return _repository.ListAllAsync();
+        }
+
+        public async Task<List<SubCategory>> ListSubCategoryAsync(ISpecification<SubCategory> spec)
+        {
+            return await _repository.ListAsync(spec);
         }
     }
 }

@@ -25,9 +25,9 @@ namespace NurgulSandalye.WebUI.Services
             _subCategoryService = subCategoryService;
             _materialService = materialService;
         }
-        public async Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId,bool? discount, StockStatus? status)
+        public async Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId,bool? discount)
         {
-            var spec = new ProductFilterSpesification(categoryId, subCategoryId, materialId, discount, status);
+            var spec = new ProductFilterSpesification(categoryId, subCategoryId, materialId, discount);
             var products = await _productService.ListProductsAsync(spec);
 
             return new ShopIndexViewModel()
@@ -44,7 +44,7 @@ namespace NurgulSandalye.WebUI.Services
                     Material = x.Material,
                 }).ToList(),
                 Categories = await GetCategoryListItem(),
-                SubCategories = await GetSubCategoryListItem(),
+                SubCategories = await GetSubCategoryListItem(categoryId),
                 Materials = await GetMaterialListItem()
             };
         }
@@ -68,9 +68,10 @@ namespace NurgulSandalye.WebUI.Services
         }
 
 
-        public async Task<List<SelectListItem>> GetSubCategoryListItem()
+        public async Task<List<SelectListItem>> GetSubCategoryListItem(int? categoryId)
         {
-            return (await _subCategoryService.ListAllSubCategoryAsync()).Select(x => new SelectListItem()
+            var spec = new SubCategorySpesification(categoryId);
+            return (await _subCategoryService.ListSubCategoryAsync(spec)).Select(x => new SelectListItem()
             {
                 Value = x.Id.ToString(),
                 Text = x.Name

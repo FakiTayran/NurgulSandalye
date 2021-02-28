@@ -1,4 +1,5 @@
-﻿using NurgulSandalye.Entities;
+﻿using Ardalis.Specification;
+using NurgulSandalye.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,8 @@ namespace NurgulSandalye.Business.Abstract
     public interface ISubCategoryService 
     {
         Task<List<SubCategory>> ListAllSubCategoryAsync();
+
+        Task<List<SubCategory>> ListSubCategoryAsync(ISpecification<SubCategory> spec);
+
     }
 }

@@ -10,14 +10,13 @@ namespace NurgulSandalye.Business.Concrete.Spesifications
 {
     public class ProductFilterSpesification : Specification<Product>
     {
-        public ProductFilterSpesification(int? categoryId,int?subCategoryId,int? materialId,bool? discount,StockStatus? status) : base()
+        public ProductFilterSpesification(int? categoryId,int?subCategoryId,int? materialId,bool? discount) : base()
         {
             Query.Where(x =>
             (!categoryId.HasValue || x.CategoryId == categoryId) &&
-            (!subCategoryId.HasValue || x.SubCategoryId == categoryId)&& 
-            (!materialId.HasValue || x.MaterialId == materialId)&& 
-            (!discount.HasValue || x.Discount == discount) &&
-            (!status.HasValue || x.StockStatus == status));
+            (!subCategoryId.HasValue || x.SubCategoryId == categoryId) &&
+            (!materialId.HasValue || x.MaterialId == materialId) &&
+            (!discount.HasValue || x.Discount == discount));
         }
     }
 }
