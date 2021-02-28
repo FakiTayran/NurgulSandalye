@@ -12,8 +12,8 @@ namespace NurgulSandalye.WebUI.Areas.Admin.Controllers
     [Authorize(Roles = "admin")]
     public class AdminBaseController : Controller
     {
-        private ICategoryService _categoryService;
-        private IProductService _productService;
+        protected ICategoryService _categoryService;
+        protected IProductService _productService;
 
         public AdminBaseController(ICategoryService categoryService, IProductService productService)
         {

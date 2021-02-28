@@ -51,14 +51,6 @@ namespace NurgulSandalye.DataAccess.Concrete.EfCore
             return await specificationResult.FirstOrDefaultAsync();
         }
 
-        public TEntity GetById(int id)
-        {
-            using (var context = new TContext())
-            {
-                return context.Set<TEntity>().Find(id);
-            }
-        }
-
         public async Task<TEntity> GetByIdAsync(int id)
         {
             using (var context = new TContext())

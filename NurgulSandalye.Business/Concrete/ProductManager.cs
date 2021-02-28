@@ -18,6 +18,11 @@ namespace NurgulSandalye.Business.Concrete
             _repository = repository;
         }
 
+        public async Task  AddProduct(Product product)
+        {
+            await _repository.AddAsync(product);
+        }
+
         public async Task<List<Product>> ListAllProductAsync()
         {
             return await _repository.ListAllAsync();

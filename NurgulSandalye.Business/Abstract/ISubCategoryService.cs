@@ -10,5 +10,6 @@ namespace NurgulSandalye.Business.Abstract
     public interface ISubCategoryService 
     {
         Task<List<SubCategory>> ListAllSubCategoryAsync();
+        Task<SubCategory> GetByIdSubCategoryAsync(int id);
     }
 }
