@@ -45,7 +45,11 @@ namespace NurgulSandalye.WebUI.Services
                 }).ToList(),
                 Categories = await GetCategoryListItem(),
                 SubCategories = await GetSubCategoryListItem(categoryId),
-                Materials = await GetMaterialListItem()
+                Materials = await GetMaterialListItem(),
+                CategoryId = categoryId,
+                SubCategoryId = subCategoryId,
+                MaterialId = materialId,
+                Discount = discount
             };
         }
 
