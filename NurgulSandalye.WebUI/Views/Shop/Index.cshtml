@@ -94,7 +94,7 @@
                 <!-- === product-filters === -->
                 <form class="col-md-3 col-xs-12" method="post">
                     <div class="filters">
-                       
+
                         <!--Discount-->
                         <div class="filter-box active">
                             <div class="title">
@@ -154,15 +154,15 @@
                             <div class="title">
                                 Malzeme
                             </div>
-                            <div class="filter-content">
+                            <div class="filter-content" id="categoryRadio">
                                 <span class="checkbox">
                                     <input type="radio" name="MaterialId" id="matIdAll" checked="checked">
                                     <label for="matIdAll">All </label>
                                 </span>
                                 @foreach (var material in Model.Materials)
                                 {
-                                    <span class="checkbox">
-                                        <input type="radio" name="MaterialId" id="matId+@material.Value" value="@material.Value" >
+                                    <span class="checkbox" >
+                                        <input type="radio" name="MaterialId" id="matId+@material.Value" value="@material.Value">
                                         <label for="matId+@material.Value">@material.Text</label>
                                     </span>
                                 }
