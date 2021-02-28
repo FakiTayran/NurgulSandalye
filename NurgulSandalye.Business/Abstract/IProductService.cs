@@ -16,5 +16,8 @@ namespace NurgulSandalye.Business.Abstract
         Task AddProduct(Product product);
 
         Task<List<Product>> ListProductsAsync(ISpecification<Product> spec);
+
+        Task<int> ProductCountAsync(ISpecification<Product> spec);
+
     }
 }

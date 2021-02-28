@@ -94,7 +94,6 @@
                 <!-- === product-filters === -->
                 <form class="col-md-3 col-xs-12" method="post">
                     <div class="filters">
-
                         <!--Discount-->
                         <div class="filter-box active">
                             <div class="title">
@@ -106,7 +105,7 @@
                                     <label for="discountId1">Hepsi</label>
                                 </span>
                                 <span class="checkbox">
-                                    <input type="radio" id="discountId2" name="Discount" value="true">
+                                    <input type="radio" id="discountId2" name="Discount" value="True">
                                     <label for="discountId2">İndirimli Ürünler</label>
                                 </span>
                             </div>
@@ -124,7 +123,7 @@
                                 @foreach (var category in Model.Categories)
                                 {
                                     <span class="checkbox">
-                                        <input type="radio" name="CategoryId" id="typeId+@category.Value" value="@category.Value" >
+                                        <input type="radio" name="CategoryId" id="typeId+@category.Value" value="@category.Value">
                                         <label for="typeId+@category.Value">@category.Text</label>
                                     </span>
                                 }
@@ -161,7 +160,7 @@
                                 </span>
                                 @foreach (var material in Model.Materials)
                                 {
-                                    <span class="checkbox" >
+                                    <span class="checkbox">
                                         <input type="radio" name="MaterialId" id="matId+@material.Value" value="@material.Value">
                                         <label for="matId+@material.Value">@material.Text</label>
                                     </span>
@@ -177,10 +176,7 @@
                 <div class="col-md-9 col-xs-12">
 
                     <div class="sort-bar clearfix">
-                        <div class="sort-results pull-left">
-                            <!--Items counter-->
-                            <span><strong>100 </strong>üründen <strong>20</strong> ürün görüntüleniyor (Sayfa 1/5)</span>
-                        </div>
+                        <partial name="_SortResult" model="@Model.PaginationInfo"/>
                         <!--Sort options-->
                         <div class="sort-options pull-right">
                             <span class="hidden-xs">Sırala</span>
@@ -235,25 +231,9 @@
 
                     </div><!--/row-->
                     <!--Pagination-->
-                    <div class="pagination-wrapper">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
+                    <partial name="_Pagination" model="@Model.PaginationInfo" />
+
 
                 </div> <!--/product items-->
 
@@ -341,12 +321,20 @@
 
 </div> <!--/wrapper-->
 
-@section scripts{ 
+@section scripts{
     <script>
         $("body").on("change", "input", function () {
             $(this).closest("form").submit();
         });
-        $("[name=CategoryId][value=@ViewBag.SelectedCategory]").attr("checked", "checked")
+
+        $("document").ready(function () {
+            $("[name=Discount][value=@ViewBag.SelectedDiscount]").attr("checked", "checked");
+            $("[name=CategoryId][value=@ViewBag.SelectedCategory]").attr("checked", "checked");
+            $("[name=SubCategoryId][value=@ViewBag.SelectedSubCategory]").attr("checked", "checked");
+            $("[name=MaterialId][value=@ViewBag.SelectedMaterial]").attr("checked", "checked");
+        });
+
+
     </script>
 
 }

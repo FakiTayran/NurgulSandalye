@@ -25,10 +25,13 @@ namespace NurgulSandalye.WebUI.Services
             _subCategoryService = subCategoryService;
             _materialService = materialService;
         }
-        public async Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId,bool? discount)
+        public async Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId,bool? discount,int pageId)
         {
-            var spec = new ProductFilterSpesification(categoryId, subCategoryId, materialId, discount);
+            var spec = new ProductFilterPaginatedSpesification(categoryId, subCategoryId, materialId, discount,(pageId-1)*Constants.ITEMS_PER_PAGE,Constants.ITEMS_PER_PAGE);
+            var specAll = new ProductFilterSpesification(categoryId, subCategoryId, materialId, discount);
             var products = await _productService.ListProductsAsync(spec);
+            var allCount = await _productService.ProductCountAsync(specAll);
+            var totalPages = (int)Math.Ceiling(allCount / (double)Constants.ITEMS_PER_PAGE);
 
             return new ShopIndexViewModel()
             {
@@ -49,7 +52,16 @@ namespace NurgulSandalye.WebUI.Services
                 CategoryId = categoryId,
                 SubCategoryId = subCategoryId,
                 MaterialId = materialId,
-                Discount = discount
+                Discount = discount,
+                PaginationInfo = new PaginationViewModel()
+                { 
+                    ItemsOnPage = products.Count(),
+                    TotalItems = allCount,
+                    TotalPages = totalPages,
+                    CurrentPage = pageId,
+                    HasPrevious = pageId > 1,
+                    HasNext = pageId < totalPages
+                }
             };
         }
 

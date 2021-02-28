@@ -10,7 +10,7 @@ namespace NurgulSandalye.WebUI.Interfaces
 {
     public interface IShopIndexViewModelService
     {
-        Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId, bool? discount);
+        Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId, bool? discount,int pageId);
 
         Task<List<SelectListItem>> GetCategoryListItem();
         Task<List<SelectListItem>> GetSubCategoryListItem(int? categoryId);

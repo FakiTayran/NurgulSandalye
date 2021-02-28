@@ -24,6 +24,11 @@ namespace NurgulSandalye.Business.Concrete
             await _repository.AddAsync(product);
         }
 
+        public async Task<int> ProductCountAsync(ISpecification<Product> spec)
+        {
+            return await _repository.CountAsync(spec);
+        }
+
         public async Task<List<Product>> ListAllProductAsync()
         {
             return await _repository.ListAllAsync();
