@@ -52,17 +52,17 @@ namespace NurgulSandalye.WebUI.Areas.Admin.Controllers
             //_productService.AddProduct(product);
             return View();
         }
-        public async Task<IActionResult> GetSubCategory(int Id)
-        {
-            var story = _subCategoryService.ListAllSubCategoryAsync();
+        //public async Task<IActionResult> GetSubCategory(int Id)
+        //{
+        //    var story = _subCategoryService.ListAllSubCategoryAsync();
             
-            if (story == null)
-            {
-                return NotFound();
+        //    if (story == null)
+        //    {
+        //        return NotFound();
 
-            }
-            string content = story.Content;
-            return Json(new { result = content });
-        }
+        //    }
+        //    string content = story.Content;
+        //    return Json(new { result = content });
+        //}
     }
 }
