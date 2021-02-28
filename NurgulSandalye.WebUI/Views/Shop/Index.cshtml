@@ -346,7 +346,6 @@
         $("body").on("change", "input", function () {
             $(this).closest("form").submit();
         });
-        //var catId="@ViewBag.SelectedCategory";
         $("[name=CategoryId][value=@ViewBag.SelectedCategory]").attr("checked", "checked")
     </script>
 
