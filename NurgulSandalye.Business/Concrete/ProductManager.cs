@@ -1,4 +1,5 @@
-﻿using NurgulSandalye.Business.Abstract;
+﻿using Ardalis.Specification;
+using NurgulSandalye.Business.Abstract;
 using NurgulSandalye.DataAccess.Abstract;
 using NurgulSandalye.Entities;
 using System;
@@ -31,6 +32,11 @@ namespace NurgulSandalye.Business.Concrete
         public async Task<List<Product>> ListPopularProductAsync()
         {
             return await _repository.ListAllAsync();
+        }
+
+        public async Task<List<Product>> ListProductsAsync(ISpecification<Product> spec)
+        {
+            return await _repository.ListAsync(spec);
         }
     }
 }

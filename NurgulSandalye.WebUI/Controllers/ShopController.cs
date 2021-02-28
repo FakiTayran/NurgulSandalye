@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NurgulSandalye.Entities;
 using NurgulSandalye.WebUI.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,9 @@ namespace NurgulSandalye.WebUI.Controllers
         {
             _shopIndexViewModelService = shopIndexViewModelService;
         }
-        public async Task<IActionResult> Index(int? categoryId, int? subCategoryId, int? materialId)
+        public async Task<IActionResult> Index(int? categoryId, int? subCategoryId, int? materialId, bool? discount, StockStatus? status)
         {
-            return View(await _shopIndexViewModelService.GetShopIndexViewModel(categoryId,subCategoryId,materialId));
+            return View(await _shopIndexViewModelService.GetShopIndexViewModel(categoryId,subCategoryId,materialId,discount,status));
         }
 
         public IActionResult OrderAdress()

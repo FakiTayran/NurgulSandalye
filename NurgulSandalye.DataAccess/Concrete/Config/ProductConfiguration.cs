@@ -19,6 +19,7 @@ namespace NurgulSandalye.DataAccess.Concrete.Config
 
             //builder.Property(x => x.Price).IsRequired(true);
 
+            builder.HasOne(x => x.Category).WithMany().HasForeignKey(x=>x.CategoryId).OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.SubCategory).WithMany().HasForeignKey(x => x.SubCategoryId);
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using NurgulSandalye.Entities;
 using NurgulSandalye.WebUI.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace NurgulSandalye.WebUI.Interfaces
 {
     public interface IShopIndexViewModelService
     {
-        Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId);
+        Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId, bool? discount, StockStatus? status);
 
         Task<List<SelectListItem>> GetCategoryListItem();
         Task<List<SelectListItem>> GetSubCategoryListItem();

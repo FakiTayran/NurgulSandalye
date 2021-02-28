@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\Spesifications\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\NurgulSandalye.DataAccess\NurgulSandalye.DataAccess.csproj" />
     <ProjectReference Include="..\NurgulSandalye.Entities\NurgulSandalye.Entities.csproj" />
   </ItemGroup>
