@@ -18,6 +18,12 @@ namespace NurgulSandalye.Business.Concrete
         {
             _repository = repository;
         }
+
+        public Task<SubCategory> GetByIdSubCategoryAsync(int id)
+        {
+            return _repository.GetByIdAsync(id);
+        }
+
         public Task<List<SubCategory>> ListAllSubCategoryAsync()
         {
             return _repository.ListAllAsync();

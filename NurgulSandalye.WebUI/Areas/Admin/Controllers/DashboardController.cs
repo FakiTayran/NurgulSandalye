@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NurgulSandalye.Business.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace NurgulSandalye.WebUI.Areas.Admin.Controllers
 {
+    [Area("admin")]
     public class DashboardController : Controller
     {
-        public DashboardController()
-        {
 
-        }
         public IActionResult Index()
         {
             return View();

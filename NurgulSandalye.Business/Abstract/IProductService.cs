@@ -13,6 +13,8 @@ namespace NurgulSandalye.Business.Abstract
     {
         Task<List<Product>> ListPopularProductAsync();
         Task<List<Product>> ListAllProductAsync();
+        Task AddProduct(Product product);
+
         Task<List<Product>> ListProductsAsync(ISpecification<Product> spec);
     }
 }
