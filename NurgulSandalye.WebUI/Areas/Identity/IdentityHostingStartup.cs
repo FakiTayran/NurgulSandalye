@@ -20,7 +20,7 @@ namespace NurgulSandalye.WebUI.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("NurgulSandalyeIdentityContextConnection")));
 
-                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                     .AddEntityFrameworkStores<NurgulSandalyeIdentityContext>();
             });
         }
