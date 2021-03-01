@@ -92,7 +92,7 @@
             <div class="row">
 
                 <!-- === product-filters === -->
-                <form class="col-md-3 col-xs-12" method="post">
+                <form class="col-md-3 col-xs-12" method="get">
                     <div class="filters">
                         <!--Discount-->
                         <div class="filter-box active">
@@ -328,10 +328,10 @@
         });
 
         $("document").ready(function () {
-            $("[name=Discount][value=@ViewBag.SelectedDiscount]").attr("checked", "checked");
-            $("[name=CategoryId][value=@ViewBag.SelectedCategory]").attr("checked", "checked");
-            $("[name=SubCategoryId][value=@ViewBag.SelectedSubCategory]").attr("checked", "checked");
-            $("[name=MaterialId][value=@ViewBag.SelectedMaterial]").attr("checked", "checked");
+            $('[name=Discount][value="@ViewBag.SelectedDiscount"]').attr("checked", "checked");
+            $('[name=CategoryId][value="@ViewBag.SelectedCategory"]').attr("checked", "checked");
+            $('[name=SubCategoryId][value="@ViewBag.SelectedSubCategory"]').attr("checked", "checked");
+            $('[name=MaterialId][value="@ViewBag.SelectedMaterial"]').attr("checked", "checked");
         });
 
 

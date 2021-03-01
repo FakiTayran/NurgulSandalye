@@ -17,6 +17,7 @@ namespace NurgulSandalye.Business.Concrete.Spesifications
             (!subCategoryId.HasValue || x.SubCategoryId == categoryId) &&
             (!materialId.HasValue || x.MaterialId == materialId) &&
             (!discount.HasValue || x.Discount == discount)).Skip(skip).Take(take);
+
         }
     }
 }
