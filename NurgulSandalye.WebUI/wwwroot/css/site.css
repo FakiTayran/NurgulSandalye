@@ -1,14 +1,14 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-a.navbar-brand {
+/*a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
-}
+}*/
 
 /* Provide sufficient contrast against white background */
-a {
+/*a {
   color: #0366d6;
 }
 
@@ -22,11 +22,11 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
-}
+}*/
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
+/*html {
   font-size: 14px;
 }
 @media (min-width: 768px) {
@@ -49,23 +49,269 @@ html {
 button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
-}
+}*/
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
+/*html {
   position: relative;
   min-height: 100%;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+body {*/
+/* Margin bottom by footer height */
+/*margin-bottom: 60px;
 }
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px;*/ /* Vertically center the text there */
+/*}*/
+
+/*navbar profile photo*/
+.profileImg {
+    height:7em;
+}
+
+
+
+
+.login_box_area .login_box_img {
+    height: 350px;
+    position: relative
+}
+
+@media (min-width: 1000px) {
+    .login_box_area .login_box_img {
+        height: 610px
+    }
+}
+
+@media (min-width: 991px) {
+    .login_box_area .login_box_img {
+        margin-right: -30px
+    }
+}
+
+.login_box_area .login_box_img img {
+    width: 100%
+}
+
+.login_box_area .login_box_img:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: #000000;
+    opacity: .9
+}
+
+.login_box_area .login_box_img .hover {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    text-align: center;
+    width: 100%;
+    transform: translateY(-50%)
+}
+
+    .login_box_area .login_box_img .hover h4 {
+        font-size: 24px;
+        color: #fff;
+        font-weight: 500;
+        margin-bottom: 15px
+    }
+
+    .login_box_area .login_box_img .hover p {
+        max-width: 390px;
+        margin: 0px auto 28px;
+        color: #fff
+    }
+
+    .login_box_area .login_box_img .hover .primary-btn {
+        border-radius: 0px;
+        line-height: 38px;
+        text-transform: uppercase
+    }
+
+        .login_box_area .login_box_img .hover .primary-btn:hover:before {
+            left: 260px
+        }
+
+.login_box_area .login_box_img .button:hover {
+    border-color: #CC9600;
+    background: #333333;
+    color: #fff !important;
+}
+
+.login_form_inner {
+    box-shadow: 0px 10px 40px 0px rgba(56, 74, 235, 0.1);
+    height: 100%;
+    text-align: center;
+    padding: 30px 0;
+    height: 400px;
+}
+
+@media (min-width: 1000px) {
+    .login_form_inner {
+        padding-top: 115px;
+        padding-bottom: 0;
+        height: 610px;
+    }
+}
+
+.login_form_inner h3 {
+    color: #222;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 75px
+}
+
+.login_form_inner .login_form {
+    max-width: 385px;
+    margin: auto
+}
+
+.login_form_inner.reg_form {
+    padding-top: 60px
+}
+
+    .login_form_inner.reg_form h3 {
+        margin-bottom: 70px
+    }
+
+.login_form .form-group {
+    margin-bottom: 22px
+}
+
+    .login_form .form-group input {
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid #cccccc;
+        border-radius: 0px;
+        outline: none;
+        box-shadow: none;
+        font-size: 14px;
+        color: #999999
+    }
+
+        .login_form .form-group input.placeholder {
+            color: #999999
+        }
+
+        .login_form .form-group input:-moz-placeholder {
+            color: #999999
+        }
+
+        .login_form .form-group input::-moz-placeholder {
+            color: #999999
+        }
+
+        .login_form .form-group input::-webkit-input-placeholder {
+            color: #999999
+        }
+
+    .login_form .form-group .creat_account {
+        margin-top: 10px;
+        font-size: 14px;
+        text-align: left
+    }
+
+        .login_form .form-group .creat_account input {
+            height: auto;
+            margin-right: 10px;
+            position: relative;
+            top: 2px
+        }
+
+    .login_form .form-group .primary-btn {
+        display: block;
+        border-radius: 0px;
+        line-height: 38px;
+        width: 100%;
+        text-transform: uppercase;
+        border: none
+    }
+
+        .login_form .form-group .primary-btn:hover:before {
+            left: 370px
+        }
+
+    .login_form .form-group a {
+        font-size: 14px;
+        color: #777;
+        margin-top: 20px;
+        display: block
+    }
+
+.register_form_inner {
+    padding-top: 70px
+}
+
+.button-login {
+    font-size: 15px;
+    padding: 7px 44px
+}
+
+.section-margin {
+    margin: 45px 0
+}
+
+@media (min-width: 980px) {
+    .section-margin {
+        margin: 40px 0
+    }
+}
+
+@media (min-width: 1100px) {
+    .section-margin {
+        margin: 40px 0
+    }
+
+        .section-margin.calc-60px {
+            margin: 40px 0 70px 0
+        }
+}
+
+.section-margin--small {
+    margin: 35px 0
+}
+
+@media (min-width: 1000px) {
+    .section-margin--small {
+        margin: 98px 0
+    }
+}
+
+.button {
+    display: inline-block;
+    border: 1px solid #CC9600;
+    border-radius: 30px;
+    color: #222;
+    font-weight: 500;
+    padding: 12px 50px;
+    background: #CC9600;
+    color: #fff;
+    transition: all .4s ease
+}
+
+@media (max-width: 767px) {
+    .button {
+        padding: 8px 25px !important
+    }
+}
+
+.button:hover {
+    border-color: #CC9600;
+    background: transparent;
+    color: #222
+}
+
+.userPagesNav {
+    background-color: #000000;
+    padding-top: 20px;
 }

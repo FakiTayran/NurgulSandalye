@@ -2,25 +2,52 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
+
+    <div class="login-wrapper">
+        <div class="form-group text-center">
+            <img src="/assets/images/userPic.png" alt="userPicture" class="profileImg"/>
+        </div>
+        <div class="form-group text-center"> <span class="open-popup">Hoşgeldin @User.Identity.Name!</span> </div>
+        <div class="form-group text-center">
+
+            <a href="#goToProfile" class="open-popup"><i class="icon icon-user"></i> Profilime Git</a>
+            @*<a href="#logOutBtn" class="open-popup"><i class="icon icon-exit"></i> Çıkış</a>*@
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="open-popup" style="all:unset;cursor:pointer;font-size:12px"><i class="icon icon-exit"></i> Çıkış</button>
+            </form>
+        </div>
+    </div>
+
+    @*<li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>*@
+
+
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
-</ul>
+
+<div class="login-wrapper">
+    @*<div class="form-group text-center">
+        <span class="open-popup">Merhaba</span>
+    </div>*@
+        <div class="form-group">
+            <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-block btn-main">Giriş Yap</a>
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-block btn-main">Üye Ol</a>
+        </div>
+    </div>
+    @*<li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>*@
+    }
+
