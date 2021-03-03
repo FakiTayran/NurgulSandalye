@@ -28,6 +28,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&amp;subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
+    <link href="~/css/site.css" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -60,26 +61,27 @@
 
                         <!-- Currency selector -->
                         <!-- <li class="nav-settings">
-                            <a href="javascript:void(0);" class="nav-settings-value"> USD $</a>
-                            <ul class="nav-settings-list">
-                                <li>USD $</li>
-                                <li>EUR €</li>
-                                <li>CHF Fr.</li>
-                                <li>GBP £</li>
-                            </ul>
-                        </li> -->
+        <a href="javascript:void(0);" class="nav-settings-value"> USD $</a>
+        <ul class="nav-settings-list">
+            <li>USD $</li>
+            <li>EUR €</li>
+            <li>CHF Fr.</li>
+            <li>GBP £</li>
+        </ul>
+    </li> -->
                         <!--Language selector-->
                         <!--
-                        <li class="nav-settings">
-                            <a href="javascript:void(0);" class="nav-settings-value"> ENG</a>
-                            <ul class="nav-settings-list">
-                                <li>ENG</li>
-                                <li>GER</li>
-                                <li>لعربية</li>
-                                <li>עִבְרִית</li>
-                            </ul>
-                        </li> -->
+    <li class="nav-settings">
+        <a href="javascript:void(0);" class="nav-settings-value"> ENG</a>
+        <ul class="nav-settings-list">
+            <li>ENG</li>
+            <li>GER</li>
+            <li>لعربية</li>
+            <li>עִבְרִית</li>
+        </ul>
+    </li> -->
                         <li><a href="javascript:void(0);" class="open-login"><i class="icon icon-user"></i></a></li>
+                        <partial name="_LoginPartial" />
                         <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>
                         <li><a href="javascript:void(0);" class="open-cart"><i class="icon icon-cart"></i> <span>3</span></a></li>
                     </ul>
@@ -243,49 +245,52 @@
 
                 <!-- ==========  Login wrapper ========== -->
 
-                <div class="login-wrapper">
-                    <form id="frmSignIn">
-                        <div class="h4">Giriş Yapın</div>
+                @*<div class="login-wrapper">
+                    <form id="frmLogIn">
+                        <div class="h4">ÜYE GİRİŞİ</div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            <input type="email" class="form-control" id="loginEmail" placeholder="E-Posta adresiniz">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre">
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Şifreniz">
                         </div>
                         <div class="form-group">
                             <a href="#forgotpassword" class="open-popup">Şifremi Unuttum</a>
-                            <a href="#createaccount" class="open-popup" id="createAccount">Hesabım yok</a>
+                            <a href="#createaccount" class="open-popup" id="createAccount">Üye Ol</a>
                         </div>
-                        <button type="submit" class="btn btn-block btn-main">Submit</button>
+                        <button type="submit" class="btn btn-block btn-main">Giriş Yap</button>
                     </form>
-                </div>
+                </div>*@
 
                 <!-- ==========  Register wrapper ==========  -->
 
-                <div class="login-wrapper d-none">
+                <!--<div class="login-wrapper">
                     <form id="frmRegister">
                         <div class="h4">Kayıt Olun</div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ad">
+                            <input type="text" class="form-control" id="registerName" placeholder="Ad">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Soyad">
+                            <input type="text" class="form-control" id="registerLastName" placeholder="Soyad">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Eposta">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre">
-                        </div>
-                        <div class="form-group">
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Şifre">
+                        </div>-->
+                        @*<div class="form-group">
                             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre Onay">
-                        </div>
-                        <div class="form-group">
+                        </div>*@
+                        @*<div class="form-group">
                             <a href="#" id="loginOpen">Giriş Ekranına Dön...</a>
+                        </div>*@
+                        <!--<div class="form-group">
+                            <a href="#" id="existedUserBtn">Zaten Üyeyim!</a>
                         </div>
                         <button type="submit" class="btn btn-block btn-main">Submit</button>
                     </form>
-                </div>
+                </div>-->
 
 
                 <!-- ==========  Cart wrapper ========== -->
@@ -507,9 +512,14 @@
     </div> <!--/wrapper-->
     <!--JS bundle -->
     <script src="~/js/bundle.min.js"></script>
+
+    <script>
+        $("#existedUserBtn").click(function () {
+
+        });
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 
 
-<!-- Mirrored from www.elathemes.com/themes/mobel/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Feb 2021 12:23:26 GMT -->
 </html>
