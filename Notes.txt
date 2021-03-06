@@ -9,4 +9,4 @@ update-database -context  NurgulSandalye.DataAccess.Concrete.EfCore.NurgulSandal
 
 add-migration InitialIdentityModel -context NurgulSandalye.DataAccess.Concrete.Identity.AppIdentityDbContext -OutputDir "NurgulSandalye.DataAccess.Concrete.Identity.AppIdentityDbContext\Migrations"   
 
-update-database -context NurgulSandalye.DataAccess.Concrete.Identity.AppIdentityDbContext
+update-database -context NurgulSandalyeIdentityContext

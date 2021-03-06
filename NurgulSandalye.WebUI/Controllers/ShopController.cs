@@ -16,13 +16,14 @@ namespace NurgulSandalye.WebUI.Controllers
         {
             _shopIndexViewModelService = shopIndexViewModelService;
         }
-        public async Task<IActionResult> Index(int? categoryId, int? subCategoryId, int? materialId, bool? discount,int pageId = 1)
+        public async Task<IActionResult> Index(int? categoryId, int? subCategoryId, int? materialId, bool? discount, int sortValue,int pageId = 1)
         {
             ViewBag.SelectedCategory = categoryId.ToString();
             ViewBag.SelectedSubCategory = subCategoryId.ToString();
             ViewBag.SelectedMaterial = materialId.ToString();
             ViewBag.SelectedDiscount = discount.ToString();
-            return View(await _shopIndexViewModelService.GetShopIndexViewModel(categoryId,subCategoryId,materialId,discount,pageId));
+            ViewBag.SelectedSort = sortValue;
+            return View(await _shopIndexViewModelService.GetShopIndexViewModel(categoryId,subCategoryId,materialId,discount,sortValue,pageId));
         }
 
         public IActionResult OrderAdress()

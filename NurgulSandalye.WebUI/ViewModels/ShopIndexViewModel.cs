@@ -21,6 +21,8 @@ namespace NurgulSandalye.WebUI.ViewModels
         public int? MaterialId { get; set; }
 
         public bool? Discount { get; set; }
+
+        public int SortValue { get; set; }
         public PaginationViewModel PaginationInfo { get; set; }
 
 

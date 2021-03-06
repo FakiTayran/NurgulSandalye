@@ -25,9 +25,9 @@ namespace NurgulSandalye.WebUI.Services
             _subCategoryService = subCategoryService;
             _materialService = materialService;
         }
-        public async Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId,bool? discount,int pageId)
+        public async Task<ShopIndexViewModel> GetShopIndexViewModel(int? categoryId, int? subCategoryId, int? materialId,bool? discount, int sortValue,int pageId)
         {
-            var spec = new ProductFilterPaginatedSpesification(categoryId, subCategoryId, materialId, discount,(pageId-1)*Constants.ITEMS_PER_PAGE,Constants.ITEMS_PER_PAGE);
+            var spec = new ProductFilterPaginatedSpesification(categoryId, subCategoryId, materialId, discount,sortValue,(pageId-1)*Constants.ITEMS_PER_PAGE,Constants.ITEMS_PER_PAGE);
             var specAll = new ProductFilterSpesification(categoryId, subCategoryId, materialId, discount);
             var products = await _productService.ListProductsAsync(spec);
             var allCount = await _productService.ProductCountAsync(specAll);

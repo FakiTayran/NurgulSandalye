@@ -92,7 +92,7 @@
             <div class="row">
 
                 <!-- === product-filters === -->
-                <form class="col-md-3 col-xs-12" method="get">
+                <form class="col-md-3 col-xs-12" method="get" id="frmFilter">
                     <div class="filters">
                         <!--Discount-->
                         <div class="filter-box active">
@@ -169,6 +169,7 @@
                         </div> <!--/filter-box-->
                         <!--close filters on mobile / update filters-->
                     </div> <!--/filters-->
+                    <input type="hidden" asp-for="SortValue"  />
                 </form>
 
                 <!--product items-->
@@ -180,7 +181,7 @@
                         <!--Sort options-->
                         <div class="sort-options pull-right">
                             <span class="hidden-xs">Sırala</span>
-                            <select>
+                            <select id="sortFilter" name="sortFilter">
                                 <option value="1">Son Eklenen</option>
                                 <option value="2">Popüler Ürünler</option>
                                 <option value="3">Fiyat : Azalan</option>
@@ -312,7 +313,6 @@
                         </div>
                     </div> <!--/product-->
                 </div> <!--popup-main-->
-
             }
         </div><!--/container-->
     </section>
@@ -323,8 +323,13 @@
 
 @section scripts{
     <script>
-        $("body").on("change", "input", function () {
+        $("body").on("change","input", function () {
             $(this).closest("form").submit();
+        });
+
+        $("#sortFilter").change(function () {
+            $('#SortValue').val($(this).val());
+            $('#frmFilter').submit();
         });
 
         $("document").ready(function () {
@@ -332,6 +337,8 @@
             $('[name=CategoryId][value="@ViewBag.SelectedCategory"]').attr("checked", "checked");
             $('[name=SubCategoryId][value="@ViewBag.SelectedSubCategory"]').attr("checked", "checked");
             $('[name=MaterialId][value="@ViewBag.SelectedMaterial"]').attr("checked", "checked");
+            $('#sortFilter').val(@ViewBag.SelectedSort);
+
         });
 
 
